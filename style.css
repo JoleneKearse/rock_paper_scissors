@@ -1,9 +1,14 @@
+/* ****** Reset ****** */
 body, html {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
-    background-image: repeating-conic-gradient(#424BFC 0 15deg, #0B13B0 15deg 30deg);
-    text-align: center;
+    font-family: 'League Spartan', sans-serif;
+    color: #4D4637;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, #2F4858, #006A79, #008D82, #41AE72, #9AC854, #FDD641);
 }
 
 img {
@@ -11,7 +16,64 @@ img {
     max-width: 100%;
 }
 
-.container {
-    margin: auto;
-    padding: 2em;
+/* ****** Typography ******* */
+
+h1,
+.result-display {
+    font-weight: 800;
+    font-size: 1.75em;
+    text-align: center;
 }
+
+h2,
+.btn {
+    font-size: 2.25em;
+}
+
+.choices {
+    font-size: 2.75em;
+    filter: drop-shadow(3px 3px 6px #23232399)
+}
+
+.result-display {
+    color: #00A488;
+    min-height: 3em;
+}
+
+/* ****** Layout ****** */
+
+.container {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.choices-box {
+    width: 50vw;
+    margin: auto;
+}
+
+.choices-box {
+    flex: 8em 0 0;
+}
+
+.btns-box {
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10em;
+    border: 1px solid red;
+}
+
+/* ****** Components ****** */
+
+.btn {
+    border: none;
+    border-radius: 50%;
+    background-color: #FC8C79;
+    justify-content: space-between;
+}
+
+
+
+
+/* ****** Media Queries ****** */
