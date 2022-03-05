@@ -43,6 +43,10 @@ h2,
 .result-display {
     color: #00A488;
     min-height: 3em;
+    text-shadow: -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 /* ****** Layout ****** */
@@ -69,6 +73,7 @@ h2,
     justify-content: space-evenly;
     width: 70vw;
     margin: auto;
+    perspective: 1000px;
 }
 
 /* ****** Components ****** */
@@ -77,11 +82,21 @@ h2,
     border: none;
     border-radius: 50%;
     background-color: #FC8C79;
-    
-    align-items: center;
+    box-shadow: 
+    1px 1px 3px 1px #2F485880,
+    2px 2px 5px 2px #2F48584D;
+    transform: background-color 1000ms ease-in, translate 1000ms;
 }
 
+.btn:hover,
+.btn:focus {
+    background-color: #ff9b88;
+}
 
+.btn:active {
+    box-shadow: none;
+    transform: translateZ(5px);
+}
 
 
 /* ****** Media Queries ****** */
