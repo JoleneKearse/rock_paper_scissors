@@ -2,6 +2,7 @@ const computerChoiceDisplay = document.getElementById("computerChoice");
 const userChoiceDisplay = document.getElementById("userChoice");
 const resultDisplay = document.getElementById("result");
 const possibleChoices = document.querySelectorAll("button");
+let rootProp = document.querySelector(":root");
 let userChoice;
 let computerChoice;
 let result;
@@ -9,6 +10,8 @@ let result;
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click", (e) => {
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
+    // change margin-bottom via custom property to avoid 'spacing jump' when choices made
+    rootProp.style.setProperty("--gap", "2.25em");
     generateComputerChoice();
     getResult();
 }));
@@ -24,6 +27,8 @@ function generateComputerChoice() {
         computerChoice = "✌️";
     };
     computerChoiceDisplay.innerHTML = computerChoice;
+    // rootProp.style.setProperty("--gap", "1.85em");
+
 };
 
 function getResult() {
