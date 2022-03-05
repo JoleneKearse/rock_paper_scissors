@@ -64,10 +64,11 @@ h2,
 }
 
 .btns-box {
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 10em;
-    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 70vw;
+    margin: auto;
 }
 
 /* ****** Components ****** */
@@ -76,7 +77,8 @@ h2,
     border: none;
     border-radius: 50%;
     background-color: #FC8C79;
-    justify-content: space-between;
+    
+    align-items: center;
 }
 
 
