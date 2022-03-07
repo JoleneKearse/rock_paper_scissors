@@ -7,8 +7,8 @@
 body, html {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     box-sizing: border-box;
     font-family: 'League Spartan', sans-serif;
     color: #4D4637;
@@ -53,34 +53,42 @@ h2,
 
 .container {
     padding: 1em;
-    display: flex;
-    flex-direction: column;
-    /* grid-template-areas: 
+    max-width: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-areas: 
     "header"
     "choices"
     "results"
     "btns";
-    grid-template-rows: 2em 8em 2em 3em; */
+}
+
+header {
+    grid-area: header;
 }
 
 .choices-box {
     width: minmax(50vw, 70vw);
     margin: auto;
-    margin-bottom: var(--gap);
+    grid-area: choices;
 }
 
-.choices-box {
-    flex: 8em 0 0;
+.results-area {
+    grid-area: results;
 }
 
 .btns-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 70vw;
-    margin: auto;
-    /* perspective: 1000px; */
+    grid-area: btns;
+    display: inline-grid;
+    justify-content: center;
+    grid-gap: 1em;
+    grid-auto-flow: column;
+    /* width: 300px; */
 }
+/* 
+.btn {
+    display: inline-grid;
+} */
 
 /* ****** Components ****** */
 
@@ -93,6 +101,14 @@ h2,
     2px 2px 5px 2px #2F48584D;
     transform: background-color 1000ms ease-in, translate 1000ms;
 }
+
+/* btn:first-of-type {
+    margin-right: 2em;
+}
+
+btn:last-of-type {
+    margin-left: 2em;
+} */
 
 .btn:hover,
 .btn:focus {
