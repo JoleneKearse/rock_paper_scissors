@@ -55,10 +55,16 @@ h2,
     padding: 1em;
     display: flex;
     flex-direction: column;
+    /* grid-template-areas: 
+    "header"
+    "choices"
+    "results"
+    "btns";
+    grid-template-rows: 2em 8em 2em 3em; */
 }
 
 .choices-box {
-    width: 50vw;
+    width: minmax(50vw, 70vw);
     margin: auto;
     margin-bottom: var(--gap);
 }
@@ -73,7 +79,7 @@ h2,
     justify-content: space-evenly;
     width: 70vw;
     margin: auto;
-    perspective: 1000px;
+    /* perspective: 1000px; */
 }
 
 /* ****** Components ****** */
@@ -98,5 +104,48 @@ h2,
     transform: translateZ(5px);
 }
 
-
 /* ****** Media Queries ****** */
+
+@media (max-height: 450px) and (orientation: landscape) {
+    .container {
+    margin: 0;
+    padding: 0;
+    /* padding: .25em; */
+    /* width: 900px; */
+    height: clamp(300px, 400px, 450px);
+    text-align: center;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "choices btns"
+    "results results";
+    grid-template-columns: minmax(500px, 1fr);
+    grid-template-rows: 20px 1fr 30px;
+    overflow: hidden;
+    }
+    header {
+        margin: 0;
+        padding: 0;
+        grid-area: header;
+    }
+    .choices-box {
+        grid-area: choices;
+        align-items: start;
+        grid-template-rows: repeat(2, 1fr);
+        /* flex: 3em 0 0; */
+    }
+    .choices {
+        font-size: 2em;
+    }
+    .results-area {
+        grid-area: results;
+        align-content: center;
+        display: inline-grid;
+    }
+    .btns-box {
+        grid-area: btns;
+        display: grid;
+        align-items: start;
+        gap: 2em;
+    }
+}
