@@ -14,7 +14,6 @@ body, html {
     color: #4D4637;
     background: rgb(63,94,251);
     background: radial-gradient(circle, #2F4858, #006A79, #008D82, #41AE72, #9AC854, #FDD641);
-    /* background-repeat: no-repeat; */
     background-size: contain;
 }
 
@@ -70,9 +69,12 @@ header {
 }
 
 .choices-box {
-    width: minmax(50vw, 70vw);
-    margin: auto;
+    max-width: 70vw;
+    min-width: 50vw;
     grid-area: choices;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
 }
 
 .results-area {
@@ -85,8 +87,6 @@ header {
     justify-content: center;
     grid-gap: 1em;
     grid-auto-flow: column;
-    
-    /* width: 300px; */
 }
 
 .btn {
@@ -103,15 +103,8 @@ header {
     1px 1px 3px 1px #2F485880,
     2px 2px 5px 2px #2F48584D;
     transform: background-color 1000ms ease-in, translate 1000ms;
+    perspective: 1000px;
 }
-
-/* btn:first-of-type {
-    margin-right: 2em;
-}
-
-btn:last-of-type {
-    margin-left: 2em;
-} */
 
 .btn:hover,
 .btn:focus {
@@ -129,8 +122,6 @@ btn:last-of-type {
     .container {
     margin: 0;
     padding: 0;
-    /* padding: .25em; */
-    /* width: 900px; */
     height: clamp(300px, 400px, 450px);
     text-align: center;
     display: grid;
@@ -149,12 +140,15 @@ btn:last-of-type {
     }
     .choices-box {
         grid-area: choices;
-        align-items: start;
-        grid-template-rows: repeat(2, 1fr);
-        /* flex: 3em 0 0; */
+        place-items: center;
+        /* grid-template-rows: repeat(2, 150px); */
+        max-width: 65vw;
+        min-width: 50vw;
     }
     .choices {
         font-size: 2em;
+        display: grid;
+        align-content: center;
     }
     .results-area {
         grid-area: results;
@@ -178,8 +172,63 @@ btn:last-of-type {
     }
 }
 
-/* @media (max-width: 900px) {
-    .container {
-        margin-top: 8em;
+@media (max-width: 900px) {
+    .choices-box {
+        margin: 0 auto;
+        text-align: center;
     }
-} */
+}
+
+@media (min-height: 700px) and (orientation: landscape) {
+    .container {
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "choices"
+        "results"
+        "btns";
+        grid-template-columns: 500px;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+    }
+    header {
+        grid-area: header;
+    }
+    .choices-box {
+        grid-area: choices;
+    }
+    .results-area {
+        grid-area: results;
+    }
+    .btns-box {
+        grid-area: btns;
+    }
+}   
+
+@media (min-width: 992px) {
+    .container {
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "choices"
+        "results"
+        "btns";
+        grid-template-columns: 500px;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+    }
+    header {
+        grid-area: header;
+    }
+    .choices-box {
+        grid-area: choices;
+    }
+    .results-area {
+        grid-area: results;
+    }
+    .btns-box {
+        grid-area: btns;
+    }
+}
